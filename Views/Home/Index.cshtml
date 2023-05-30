@@ -1,0 +1,41 @@
+﻿@model List<SalesStaff>
+@{
+    ViewData["Title"] = "Report";
+}
+
+<div class="pag">
+    <div class="row">
+        <img src="~/Images/user-mgt.jpg" class="img-fluid" alt="Responsive image" style="height:300px">
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">User Email</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Count > 0)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Email</td>
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                        <td>
+                            @Html.ActionLink("Delete", "Delete", new {  id=item.Id })
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <th colspan="4">No record found.</th>
+                </tr>
+            }
+    </table>
+</div>

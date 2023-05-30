@@ -1,0 +1,72 @@
+﻿@model InventoryDto
+@{
+    ViewData["Title"] = "Search Inventory";
+    //Layout = "_MainLayout";
+}
+
+<div class="pag">
+    <div class="row">
+        <img src="~/Images/add-inventory.png" class="img-fluid" alt="Responsive image" style="height:300px">
+    </div>
+    <h1>INVENTORY</h1>
+        <table class="table">
+
+        <form asp-action="Index">
+
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Select Category</label>
+                @Html.DropDownListFor(model => model.ProductCategory, new SelectList(@ViewBag.CategoriesList, "CategoryName", "CategoryName"), new {@class="form-select"})
+                    
+                @*<select id="ProductCategory" class="form-control" asp-for="ProductCategory" name="ProductCategory">
+                    <option value="Select">Select Category</option>
+                <option value="Furniture">Furniture</option>
+                <option value="Shirts">Shirts</option>
+                <option value="Tables">Tables</option>
+                <option value="Sofa">Sofa</option>
+               
+            </select>*@
+                </div><br />
+                <button type="submit" class="btn btn-primary ">SEARCH</button>
+                </form>
+                </table>
+
+   
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Price</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                 @if (Model.Inventory != null && Model.Inventory.Count > 0)
+                {
+                    @foreach (var inv in Model.Inventory)
+                    {
+                        <tr>
+                            <th scope="row">@inv.Id</th>
+                            <td>@inv.ProductName</td>
+                            <td>@inv.ProductCategory</td>
+                            <td>@inv.ProductPrice</td>
+                            <td>
+                            @Html.ActionLink("Delete", "Delete", new {  id=inv.Id })
+                        </td>
+                        </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                            <td colspan="5">No record found.</td>
+                            </tr>
+            }
+        </tbody>
+        </table>
+   
+   
+</div>
+
+

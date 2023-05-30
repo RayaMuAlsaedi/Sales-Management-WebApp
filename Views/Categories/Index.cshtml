@@ -1,0 +1,57 @@
+﻿@model IEnumerable<SaleInvoicesApp.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="pag">
+<h1>Categories</h1>
+    <div class="row">
+        <div class="col-md-3">
+            <img src="~/Images/phones.jpg" class="img-fluid" alt="Responsive image" style="height:200px">
+        </div>
+        <div class="col-md-3">
+            <img src="~/Images/shirts.jpg" class="img-fluid" alt="Responsive image" style="height:200px">
+        </div>
+        <div class="col-md-3">
+            <img src="~/Images/furniture.jpg" class="img-fluid" alt="Responsive image" style="height:200px">
+        </div>
+        <div class="col-md-3">
+            <img src="~/Images/sofa.png" class="img-fluid" alt="Responsive image" style="height:200px">
+        </div>
+       
+    </div>
+    <br />
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            @*<td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>*@
+        </tr>
+}
+    </tbody>
+</table>
+</div>

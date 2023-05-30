@@ -1,0 +1,65 @@
+﻿@model ReportsDto
+@{
+    ViewData["Title"] = "Report";
+}
+
+ <div class="pag">
+    <div class="row">
+        <img src="~/Images/report.png" class="img-fluid" alt="Responsive image" style="height:300px">
+    </div>
+        <table class="table">
+        <form asp-action="Index">
+                <h1>REPORTS</h1>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Invoice Type</label>
+                <select class="form-select" id="exampleFormControlSelect1" asp-for="InvoiceType">
+                        <option>All</option>
+                        <option>Sale</option>
+                        <option>Refund</option>
+                    </select>
+                </div>
+            
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Product Category</label>
+                @Html.DropDownListFor(model => model.Category, new SelectList(@ViewBag.CategoriesList, "CategoryName", "CategoryName"), new {@class="form-select"})
+                @*<select class="form-control" id="exampleFormControlSelect1" asp-for="Category">
+                        <option value="Furniture">Furniture</option>
+                        <option value="Shirts">Shirts</option>
+                        <option value="Tables">Tables</option>
+                        <option value="Sofa">Sofa</option>
+                    </select>*@
+                </div><br />
+                <button type="submit" class="btn btn-primary ">SEARCH</button>
+                <p></p>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if(Model.Products != null && Model.Products.Count > 0)
+                    {
+                        foreach(var item in Model.Products)
+                        {
+                            <tr>
+                            <th scope="row">@item.Id</th>
+                                <td>@item.ProductName</td>
+                                <td>@item.ProductCategory</td>
+                            <td>@item.ProductPrice</td>
+                            
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <th colspan="4">No record found.</th>
+                        </tr>
+                    }
+                </table>
+                </form></table></div>

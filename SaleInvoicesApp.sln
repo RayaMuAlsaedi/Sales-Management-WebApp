@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaleInvoicesApp", "SaleInvoicesApp.csproj", "{764EA08B-294E-4E36-BED1-F07C303A869B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{764EA08B-294E-4E36-BED1-F07C303A869B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{764EA08B-294E-4E36-BED1-F07C303A869B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{764EA08B-294E-4E36-BED1-F07C303A869B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{764EA08B-294E-4E36-BED1-F07C303A869B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7B6EA183-C4D1-4FA7-B6B8-DCA0BCF35559}
+	EndGlobalSection
+EndGlobal

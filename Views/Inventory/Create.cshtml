@@ -1,0 +1,37 @@
+﻿@model Inventory
+@{
+    ViewData["Title"] = "Create Inventory";
+}
+<div class="pag">
+    <div class="row">
+        <img src="~/Images/inventory.jpg" class="img-fluid" alt="Responsive image" style="height:300px">
+    </div>
+
+     <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+            <label for="ProductName"><b>Product Name</b></label>
+            <input type="text" class="form-control" asp-for="ProductName" aria-describedby="emailHelp" placeholder="Product Name" />
+            <span asp-validation-for="ProductName" class="text-danger"></span>
+                    <br />
+                </div>
+        <div class="form-group">
+            @Html.DropDownListFor(model => model.ProductCategory, new SelectList(@ViewBag.CategoriesList, "CategoryName", "CategoryName"), new {@class="form-select"})
+            @*<select id="ProductCategory" class="form-control" asp-for="ProductCategory" name="ProductCategory">
+                <option value="Furniture">Furniture</option>
+                <option value="Shirts">Shirts</option>
+                <option value="Tables">Tables</option>
+                <option value="Sofa">Sofa</option>
+               
+            </select>*@
+    
+        </div><br />
+                <div class="form-group">
+            <label for="rs"><b>Product Price</b></label>
+            <input type="text" class="form-control" asp-for="ProductPrice" rows="9" placeholder="ProductPrice" />
+            <span asp-validation-for="ProductPrice" class="text-danger"></span>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-success btn-lg" style="padding:10px 50px">Submit</button>
+            </form>
+</div>

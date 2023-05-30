@@ -1,0 +1,64 @@
+﻿@model InvoiceDto
+@{
+    ViewData["Title"] = "Add Invoice";
+}
+<div class="pag">
+    <div class="row">
+        <img src="~/Images/sales.jpg" class="img-fluid" alt="Responsive image" style="height:400px">
+    </div>
+        <table class="table">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Select Product</label>
+                    <select class="form-select" asp-for="ProductID">
+                    @if(Model.Products != null)
+                    {
+                        foreach(var item in Model.Products)
+                        {
+                            <option value="@item.Id">@item.ProductName</option>
+                        }
+                    }
+            </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Invocie Type</label>
+                <select class="form-select" asp-for="InvoiceType" id="exampleFormControlSelect1">
+                        <option>Sale</option>
+                        <option>Refund</option>
+                    </select>
+                    <div class="form-group">
+                        <label for="inputAddress">Sale Price</label>
+                    <input type="text" asp-for="SalePrice" class="form-control" id="inputAddress" placeholder="0.00">
+                    </div>
+                </div><br />
+                <button type="submit" class="btn btn-primary ">ADD TO IVOICE</button>
+                
+            @* <p></p>
+               <button type="button" class="btn btn-success ">CHECK OUT</button>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">product name</th>
+                            <th scope="col">cattegury</th>
+                            <th scope="col">price</th>
+                            <th scope="col">action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>cde22</td>
+                            <td>tv</td>
+                            <td>2499</td>
+                            <td>
+                                <button><i class="fas fa-times"></i></button>
+                            </td>
+
+                        </tr>
+                </table>*@
+            </form>    
+            </table>
+                
+                </div>
